@@ -1,34 +1,46 @@
 # Industrial IoT Analytics Platform
 
-A real-time industrial IoT sensor monitoring and analytics platform that demonstrates modern data stack integration using FastAPI, Airbyte, and Motherduck.
+<div align="center">
+  <img src="assets/logo.png" width="400">
+</div>
 
-## Project Components
+Industrial IoT sensor monitoring and analytics platform demonstrating modern data stack integration using FastAPI, Airbyte, and MotherDuck.
 
-### 1. IoT Sensor Simulator (FastAPI)
-- Simulates industrial machine sensor data
-- Generates temperature, vibration, and RPM readings
-- Includes anomaly simulation
-- REST API endpoints for single and batch readings
+## Technical Implementation
+The solution simulates an industrial IoT environment where sensor data is collected and analyzed in mini batches:
 
-### 2. Data Pipeline
-- Uses Airbyte Cloud for data ingestion
-- ngrok for exposing local API
-- Motherduck (DuckDB) for analytics storage
-- Real-time data processing and analysis
+- **Edge Layer**: FastAPI simulates IoT sensors, generating realistic machine data (temperature, vibration, RPM) with configurable anomaly rates
+- **Ingestion**: Airbyte Cloud handles real-time data ingestion from the API endpoint
+- **Storage & Analytics**: MotherDuck (DuckDB) provides cloud data warehouse capabilities with natural language querying
+- **Visualization**: Streamlit powers an interactive monitoring dashboard
 
-### 3. Analytics Dashboard (Streamlit)
-- Real-time sensor monitoring
-- Interactive visualizations
-- Anomaly detection
-- Natural language querying using Motherduck's pragma prompt_query
+In production environments, data would typically flow through MQTT protocols via edge gateways into cloud message brokers (like AWS IoT Core or Azure IoT Hub) for buffering before ingestion. This demo simplifies the architecture while maintaining realistic data patterns and API-based ingestion. ngrok provides a public endpoint for the local FastAPI server.
+
+## Demo
+Watch the full demo:
+<div align="center">
+  <a href="[LOOM_URL]">
+    <img src="assets/demo-thumbnail.png" width="600">
+  </a>
+</div>
+
+## Dataset
+The simulated industrial IoT dataset includes:
+- 5 unique machines with distinct baseline characteristics
+- Real-time sensor readings:
+  - Temperature (°C)
+  - Vibration (mm/s)
+  - RPM
+- 5% anomaly injection rate
+- Machine status tracking (normal/warning)
+- Time-series data with millisecond precision
 
 ## Setup Instructions
-
 ### Prerequisites
 - Python 3.9+
 - ngrok account
 - Airbyte Cloud account
-- Motherduck account
+- MotherDuck account
 
 ### Environment Setup
 ```bash
@@ -40,52 +52,37 @@ conda activate iot-dashboard
 pip install -r requirements.txt
 ```
 
-### Running the Application
+Create a `.env` file:
+```env
+# For Airbyte connection
+MOTHERDUCK_TOKEN_AIRBYTE=your_token_here
 
-1. Start the FastAPI Sensor Simulator:
+# For Streamlit dashboard
+MOTHERDUCK_TOKEN_STREAMLIT=your_token_here
+```
+
+### Running the Application
+1. Start FastAPI Simulator:
 ```bash
 python edge_gateway.py
 ```
 
-2. Expose API using ngrok:
+2. Create ngrok tunnel:
 ```bash
 ngrok http 8001
 ```
 
-3. Configure Airbyte Cloud:
-- Create a new custom source
-- Use the ngrok URL as the base URL
-- Configure sync to Motherduck destination
+3. Configure Airbyte:
+   - Create custom HTTP source using ngrok URL
+   - Set MotherDuck as destination
+   - Configure sync frequency (minimum 60 minutes for cloud)
 
-4. Run the Streamlit Dashboard:
+4. Launch dashboard:
 ```bash
 streamlit run app.py
 ```
 
-## Project Structure
-```
-.
-├── README.md
-├── requirements.txt
-├── edge_gateway.py          # FastAPI sensor simulator
-├── app.py                   # Streamlit dashboard
-└── sql/
-    └── schema.sql          # Database schema and transformations
-```
-
-## Requirements
-```
-fastapi>=0.68.0
-uvicorn>=0.15.0
-streamlit==1.24.0
-plotly
-duckdb
-pandas
-```
-
 ## Database Schema
-
-### Raw Data Table
 ```sql
 CREATE TABLE sensor_data_flattened (
     rpm FLOAT,
@@ -94,40 +91,30 @@ CREATE TABLE sensor_data_flattened (
     timestamp TIMESTAMP,
     machine_id VARCHAR,
     status VARCHAR,
-    _airbyte_raw_id VARCHAR
+    *airbyte*raw_id VARCHAR
 );
 ```
 
+## AI Tools Used
+- Claude (Anthropic) as development copilot
+- Perplexity for technical research and documentation
+
 ## Features
-- Real-time sensor data simulation
-- Automated data pipeline using Airbyte
+- Real-time sensor monitoring
+- Automated data ingestion
 - Interactive analytics dashboard
-- Natural language data querying
+- Natural language querying
 - Anomaly detection
 - Time-series visualizations
 
-## Demo Setup Guide
-
-1. Clone the repository
-2. Set up the conda environment
-3. Configure your Motherduck token
-4. Start the FastAPI server
-5. Set up ngrok tunnel
-6. Configure Airbyte connection
-7. Launch the Streamlit dashboard
-
-## Notes
-- The FastAPI server runs on port 8001
-- Ensure your Motherduck token is properly configured
-- Keep the ngrok tunnel running for Airbyte connectivity
-- Monitor the Airbyte sync logs for data pipeline health
-
 ## Future Enhancements
-- Multiple machine simulation
-- Advanced anomaly detection algorithms
-- Predictive maintenance features
+- MQTT protocol integration
+- ML anomaly detection
+- Predictive maintenance
 - Additional sensor types
-- Machine learning integration
+
+## MotherDuck Instance Access
+[Share URL to be added]
 
 ## Contributing
 Feel free to submit issues and enhancement requests!
