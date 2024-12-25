@@ -24,6 +24,12 @@ Watch the full demo:
   </a>
 </div>
 
+## Dashboard Preview
+<div align="center">
+  <img src="assets/dashboard_image_1.png" width="800">
+  <img src="assets/dashboard_image_2.png" width="800">
+</div>
+
 ## Dataset
 The simulated industrial IoT dataset includes:
 - 5 unique machines with distinct baseline characteristics
