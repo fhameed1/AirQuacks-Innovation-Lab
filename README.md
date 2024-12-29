@@ -19,8 +19,8 @@ In production environments, data would typically flow through MQTT protocols via
 ## Demo
 Watch the full demo:
 <div align="center">
-  <a href="[LOOM_URL]">
-    <img src="assets/demo-thumbnail.png" width="600">
+  <a href="https://www.loom.com/share/8ad5e0c6e913497cbbe9433946669ba0">
+    <img src="https://cdn.loom.com/sessions/thumbnails/8ad5e0c6e913497cbbe9433946669ba0-with-play.gif">
   </a>
 </div>
 
