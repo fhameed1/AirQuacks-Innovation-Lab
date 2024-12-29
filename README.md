@@ -17,12 +17,7 @@ The solution simulates an industrial IoT environment where sensor data is collec
 In production environments, data would typically flow through MQTT protocols via edge gateways into cloud message brokers (like AWS IoT Core or Azure IoT Hub) for buffering before ingestion. This demo simplifies the architecture while maintaining realistic data patterns and API-based ingestion. ngrok provides a public endpoint for the local FastAPI server.
 
 ## Demo
-Watch the full demo:
-<div align="center">
-  <a href="https://www.loom.com/share/8ad5e0c6e913497cbbe9433946669ba0" target="_blank">
-    <img src="https://cdn.loom.com/sessions/thumbnails/8ad5e0c6e913497cbbe9433946669ba0-with-play.gif" alt="Project Demo Video" style="max-width: 800px;">
-  </a>
-</div>
+[Watch the full video demo on Loom](https://www.loom.com/share/8ad5e0c6e913497cbbe9433946669ba0)
 
 ## Dashboard Preview
 <div align="center">
