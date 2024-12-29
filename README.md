@@ -123,8 +123,5 @@ ATTACH 'md:_share/AirQuacks-Innovation-Lab-Hackathon/201a2473-a1f2-462d-8233-901
 - Predictive maintenance
 - Additional sensor types
 
-## MotherDuck Instance Access
-[Share URL to be added]
-
 ## Contributing
 Feel free to submit issues and enhancement requests!
