@@ -19,9 +19,15 @@ In production environments, data would typically flow through MQTT protocols via
 ## Demo
 Watch the full demo:
 <div align="center">
-  <a href="https://www.loom.com/share/8ad5e0c6e913497cbbe9433946669ba0">
-    <img src="https://cdn.loom.com/sessions/thumbnails/8ad5e0c6e913497cbbe9433946669ba0-with-play.gif">
-  </a>
+  <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+    <iframe src="https://www.loom.com/embed/8ad5e0c6e913497cbbe9433946669ba0" 
+      frameborder="0" 
+      webkitallowfullscreen 
+      mozallowfullscreen 
+      allowfullscreen 
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+    </iframe>
+  </div>
 </div>
 
 ## Dashboard Preview
