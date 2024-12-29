@@ -96,6 +96,15 @@ CREATE TABLE sensor_data_flattened (
 );
 ```
 
+## MotherDuck Share
+```sql
+
+-- Run this snippet to attach database
+ATTACH 'md:_share/AirQuacks-Innovation-Lab-Hackathon/201a2473-a1f2-462d-8233-9012007e008a';
+
+```
+
+
 ## AI Tools Used
 - Claude (Anthropic) as development copilot
 - Perplexity for technical research and documentation
